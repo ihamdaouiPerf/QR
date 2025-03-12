@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès sécurisé test</title>
+    <script>
+        function logAttempt(password, success) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "log.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("password=" + encodeURIComponent(password) + "&success=" + success);
+        }
+        
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "louloulou") {
+                logAttempt(password, "success");
+                window.location.href = "https://www.google.com/maps/place/Plage+Chaffar/@34.5340804,10.5799311,683m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12ffd941e47cc63b:0x17985cf5e945ac3e!8m2!3d34.534076!4d10.582506!16s%2Fg%2F11lgwsxxzp?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D";
+            } else {
+                logAttempt(password, "failed");
+                alert("Mot de passe incorrect !");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Accès sécurisé test</h2>
+    <p>Veuillez entrer le mot de passe pour accéder à la carte :</p>
+    <input type="password" id="password" placeholder="Entrez le mot de passe">
+    <button onclick="checkPassword()">Valider</button>
+</body>
+</html>
