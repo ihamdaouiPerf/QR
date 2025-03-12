@@ -30,7 +30,7 @@ if (isset($_GET['download'])) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Enter password to continue</title>
+    <title>Hello</title>
     <link rel="stylesheet" href="./assets/vendor/css/rtl/core.css" />
     <link rel="stylesheet" href="./assets/vendor/css/rtl/theme-default.css" />
     <link rel="stylesheet" href="./assets/css/demo.css" />
@@ -45,20 +45,24 @@ if (isset($_GET['download'])) {
                         <span class="app-brand-logo demo">
                             <img src="./assets/img/icons/misc/icons8-guitar-96.png" height="48px" alt="">
                         </span>
-                        <span class="app-brand-text demo text-heading fw-semibold">Materialize</span>
+                        <span class="app-brand-text demo text-heading fw-semibold">Hello</span>
                     </a>
                 </div>
                 <div class="card-body mt-1">
-                    <p class="mb-4">Morning (M),<br/>I think that you are the right person.<br/>To make sure, enter the name of the song sent to you a few weeks ago, then meet me there today at 16:30pm.</p>
-                    <h6 class="mb-2">Enter password to continue 🔒</h6>
-                    <div id="formAuthentication" class="mb-5">
-                        <div class="form-floating form-floating-outline mb-5">
-                            <input type="password" class="form-control" id="password" placeholder="Enter password" autofocus>
-                            <label>Password</label>
-                        </div>
-                        <button class="btn btn-primary d-grid w-100" onclick="checkPassword()">Continue</button>
-                    </div>
-                </div>
+            <!--h5 class="mb-1">Enter the name of the song to continue 🔒</h5-->
+			<h5 class="mb-1">Morning (M) ,</h5>
+            <p class="mb-5"> <br/>
+              I think that u are the right person. <br/>
+              To make sure , enter the name of the song sent to u few weeks ago , then meet me there today at 16:30pm.</p>
+            <div id="formAuthentication" class="mb-5">
+              <div class="form-floating form-floating-outline mb-5">
+                <input type="text" class="form-control" type="password" id="password" placeholder="Enter the name of the song"
+                  autofocus>
+                <label>name of the song</label>
+              </div>
+              <button class="btn btn-primary d-grid w-100" onclick="checkPassword()">Continue</button>
+            </div>
+          </div>
             </div>
         </div>
     </div>
@@ -71,13 +75,13 @@ if (isset($_GET['download'])) {
         }
         
         function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "louloulou") {
+            var password = document.getElementById("password").value.toLowerCase();
+            if (password === "wish you were here") {
                 logAttempt(password, "success");
-                window.location.href = "https://www.google.com/maps/place/Plage+Chaffar";
+                window.location.href = "https://www.google.com/maps?q=34.7250843,10.7832588&hl=en-TN&gl=tn&entry=gps&lucs=,94255446,94242487,47071704,47069508&g_ep=CAISDDYuODUuNS4xNDU5MBgAINeCAyokLDk0MjU1NDQ2LDk0MjQyNDg3LDQ3MDcxNzA0LDQ3MDY5NTA4QgJUTg%3D%3D&skid=8d917124-28ea-49c3-8ef2-4ea0026c3ca8&g_st=ic";
             } else {
                 logAttempt(password, "failed");
-                alert("Mot de passe incorrect !");
+                alert("Incorrect !");
             }
         }
     </script>
